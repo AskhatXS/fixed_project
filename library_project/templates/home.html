@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Книжная библиотека</h1>
+<p></p>
+<p><a href="{% url 'book_list' %}">Перейти к списку книг</a></p>
+
+{% if user.is_authenticated %}
+    <p>Hi, {{ user.username }}!</p>    <form action="{% url 'logout' %}" method="post">    {% csrf_token %}
+    <button type="submit">Выйти</button></form>{% else %}
+    <a href="{% url 'login' %}">Войти</a>{% endif %}
+</body>
+</html>
